@@ -1,25 +1,30 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace SimpleCronJob;
-
-public static class SimpleCronJobExtensions
+namespace SimpleCronJob
 {
-    public static IServiceCollection AddCronJob<T>(this IServiceCollection services, Action<IScheduleConfig<T>> options) where T : CronJobService
+    public static class SimpleCronJobExtensions
     {
-        if (options == null)
+        public static IServiceCollection AddCronJob<T>(this IServiceCollection services,
+            Action<IScheduleConfig<T>> options) where T : CronJobService
         {
-            throw new ArgumentNullException(nameof(options), @"Please provide Schedule Configurations.");
-        }
-        var config = new ScheduleConfig<T>();
-        options.Invoke(config);
-        
-        if (string.IsNullOrWhiteSpace(config.CronExpression))
-        {
-            throw new ArgumentNullException(nameof(ScheduleConfig<T>.CronExpression), @"Empty Cron Expression is not allowed.");
-        }
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options), @"Please provide Schedule Configurations.");
+            }
 
-        services.AddSingleton<IScheduleConfig<T>>(config);
-        services.AddHostedService<T>();
-        return services;
+            var config = new ScheduleConfig<T>();
+            options.Invoke(config);
+
+            if (string.IsNullOrWhiteSpace(config.CronExpression))
+            {
+                throw new ArgumentNullException(nameof(ScheduleConfig<T>.CronExpression),
+                    @"Empty Cron Expression is not allowed.");
+            }
+
+            services.AddSingleton<IScheduleConfig<T>>(config);
+            services.AddHostedService<T>();
+            return services;
+        }
     }
 }

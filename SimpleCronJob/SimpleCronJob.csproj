@@ -1,14 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <TargetFrameworks>net6.0; netstandard2.0</TargetFrameworks>
+        <PackageId>SimpleCronJob</PackageId>
+        <Authors>George2giga</Authors>
+        <Version>1.0.0</Version>
+        <PackageProjectUrl>https://github.com/george2giga/SimpleCronJob</PackageProjectUrl>
+        <PackageIcon>schedule.png</PackageIcon>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageDescription>Add cron jobs to your ASP.NET Core application.</PackageDescription>
+        <RepositoryUrl>https://github.com/george2giga/SimpleCronJob</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Cronos" Version="0.7.1" />
       <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="schedule.png" Pack="true" Visible="false" PackagePath="" /> >
     </ItemGroup>
 
 </Project>
