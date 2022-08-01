@@ -6,7 +6,6 @@ using Microsoft.Extensions.Hosting;
 
 namespace SimpleCronJob
 {
-
     public abstract class CronJobService : IHostedService, IDisposable
     {
         private System.Timers.Timer _timer;
