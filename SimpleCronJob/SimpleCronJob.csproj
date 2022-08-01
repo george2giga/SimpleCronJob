@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="schedule.png" Pack="true" Visible="false" PackagePath="" /> >
+        <None Include="schedule.png" Pack="true" Visible="false" PackagePath="schedule.png" />
     </ItemGroup>
-
+    
 </Project>
