@@ -4,7 +4,7 @@
         <TargetFrameworks>net6.0; netstandard2.0</TargetFrameworks>
         <PackageId>SimpleCronJob</PackageId>
         <Authors>George2giga</Authors>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <PackageProjectUrl>https://github.com/george2giga/SimpleCronJob</PackageProjectUrl>        
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageDescription>Add cron jobs to your ASP.NET Core application.</PackageDescription>
